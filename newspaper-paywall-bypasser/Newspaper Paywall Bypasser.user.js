@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Newspaper Paywall Bypasser
-// @namespace    https://greasyfork.org/users/649
+// @name         Newspaper Paywall Bypasser (WillPresley-Fork)
+// @namespace    https://github.com/WillPresley
 // @version      1.5.10
-// @description  Bypass the paywall on online newspapers
+// @description  Bypass the paywall on online newspapers (additional sources by WillPresley
 // @author       Adrien Pyke
 // @match        *://www.thenation.com/article/*
 // @match        *://www.wsj.com/articles/*
@@ -18,7 +18,7 @@
 // @grant        GM_setValue
 // @grant        GM_registerMenuCommand
 // @grant        unsafeWindow
-// @require      https://greasyfork.org/scripts/5679-wait-for-elements/code/Wait%20For%20Elements.js?version=122976
+// @require      https://raw.githubusercontent.com/WillPresley/userscripts/master/wait-for-elements/Wait%20For%20Elements.js
 // @noframes
 // ==/UserScript==
 
