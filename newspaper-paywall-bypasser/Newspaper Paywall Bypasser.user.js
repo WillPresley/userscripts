@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Newspaper Paywall Bypasser (WillPresley-Fork)
-// @namespace    https://github.com/WillPresley
+// @name         Newspaper Paywall Bypasser
+// @namespace    https://greasyfork.org/users/649
 // @version      1.5.11
-// @description  Bypass the paywall on online newspapers (additional sources by WillPresley
+// @description  Bypass the paywall on online newspapers
 // @author       Adrien Pyke
 // @match        *://www.thenation.com/article/*
 // @match        *://www.wsj.com/articles/*
@@ -13,13 +13,12 @@
 // @match        *://mobile.nytimes.com/*
 // @match        *://www.latimes.com/*
 // @match        *://www.washingtonpost.com/*
-// @match        *://www.dispatch.com/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_registerMenuCommand
 // @grant        unsafeWindow
-// @require      https://raw.githubusercontent.com/WillPresley/userscripts/master/wait-for-elements/Wait%20For%20Elements.js
+// @require      https://cdn.rawgit.com/fuzetsu/userscripts/477063e939b9658b64d2f91878da20a7f831d98b/wait-for-elements/wait-for-elements.js
 // @noframes
 // ==/UserScript==
 
@@ -230,7 +229,12 @@
         },
         fn: function() {
             // clear intervals once the paywall comes up to prevent changes afterward
-            waitForElems('#Gateway_optly', Util.clearAllIntervals, true);
+            waitForElems({
+                sel: '#Gateway_optly',
+                stop: true,
+                onmatch: Util.clearAllIntervals
+            });
+
             this.cleanupStory(Util.q('#story'));
             setTimeout(function() {
                 require(['jquery/nyt'], function($) {
@@ -327,17 +331,6 @@
             };
             document.addEventListener('keydown', handler, true);
             document.addEventListener('mousewheel', handler, true);
-        }
-    }, {
-        name: 'Columbus Dispatch',
-        match: '^https?://www\.dispatch\.com/.*',
-        css: {
-            '.tp-backdrop.tp-active, .tp-modal': {
-                display: 'none'
-            },
-            'html, body': {
-                overflow: 'visible'
-            }
         }
     }];
     // END OF IMPLEMENTATIONS
@@ -449,10 +442,14 @@
                     setTimeout(App.bypass(imp), imp.wait || 0);
                 } else {
                     var wait = waitType === 'function' ? imp.wait() : imp.wait;
-                    waitForElems(wait, function() {
-                        Util.log('Condition fulfilled, bypassing');
-                        App.bypass(imp);
-                    }, true);
+                    waitForElems({
+                        sel: wait,
+                        stop: true,
+                        onmatch: function() {
+                            Util.log('Condition fulfilled, bypassing');
+                            App.bypass(imp);
+                        }
+                    });
                 }
             } else {
                 App.bypass(imp);
