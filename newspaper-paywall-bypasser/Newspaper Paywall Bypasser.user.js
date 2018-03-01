@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Newspaper Paywall Bypasser (WillPresley-Fork)
 // @namespace    https://github.com/WillPresley
-// @version      1.5.11
-// @description  Bypass the paywall on online newspapers (additional sources by WillPresley
+// @version      1.5.12
+// @description  Bypass the paywall on online newspapers (additional sources by WillPresley)
 // @author       Adrien Pyke
 // @match        *://www.thenation.com/article/*
 // @match        *://www.wsj.com/articles/*
