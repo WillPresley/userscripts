@@ -13,6 +13,7 @@
 // @match        *://mobile.nytimes.com/*
 // @match        *://www.latimes.com/*
 // @match        *://www.washingtonpost.com/*
+// @match        *://www.dispatch.com/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
 // @grant        GM_setValue
@@ -332,6 +333,16 @@
             document.addEventListener('keydown', handler, true);
             document.addEventListener('mousewheel', handler, true);
         }
+    }, {
+        name: 'Columbus Dispatch',
+        match: '^https?://www\.dispatch\.com/.*',
+        css: {
+            '.tp-backdrop.tp-active, .tp-modal': {
+                display: 'none'
+            },
+            'html, body': {
+                overflow: 'visible'
+            }
     }];
     // END OF IMPLEMENTATIONS
 
