@@ -4,17 +4,17 @@
 // @version      1.5.13
 // @description  Bypass the paywall on online newspapers (additional sources by WillPresley)
 // @author       Adrien Pyke
-// @match        *://thenation.com/article/*
-// @match        *://wsj.com/articles/*
+// @match        *://*.thenation.com/article/*
+// @match        *://*.wsj.com/articles/*
 // @match        *://blogs.wsj.com/*
-// @match        *://bostonglobe.com/*
-// @match        *://nytimes.com/*
+// @match        *://*.bostonglobe.com/*
+// @match        *://*.nytimes.com/*
 // @match        *://myaccount.nytimes.com/mobile/wall/smart/*
 // @match        *://mobile.nytimes.com/*
-// @match        *://latimes.com/*
-// @match        *://washingtonpost.com/*
-// @match        *://dispatch.com/*
-// @match        *://athensmessenger.com/*
+// @match        *://*.latimes.com/*
+// @match        *://*.washingtonpost.com/*
+// @match        *://*.dispatch.com/*
+// @match        *://*.athensmessenger.com/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
 // @grant        GM_setValue
