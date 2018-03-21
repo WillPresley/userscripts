@@ -4,17 +4,25 @@
 // @version      1.5.13
 // @description  Bypass the paywall on online newspapers (additional sources by WillPresley)
 // @author       Adrien Pyke
-// @match        *://*.thenation.com/article/*
-// @match        *://*.wsj.com/articles/*
+// @match        *://thenation.com/article/*
+// @match        *://www.thenation.com/article/*
+// @match        *://wsj.com/articles/*
+// @match        *://www.wsj.com/articles/*
 // @match        *://blogs.wsj.com/*
-// @match        *://*.bostonglobe.com/*
-// @match        *://*.nytimes.com/*
+// @match        *://bostonglobe.com/*
+// @match        *://www.bostonglobe.com/*
+// @match        *://nytimes.com/*
+// @match        *://www.nytimes.com/*
 // @match        *://myaccount.nytimes.com/mobile/wall/smart/*
 // @match        *://mobile.nytimes.com/*
-// @match        *://*.latimes.com/*
-// @match        *://*.washingtonpost.com/*
-// @match        *://*.dispatch.com/*
-// @match        *://*.athensmessenger.com/*
+// @match        *://latimes.com/*
+// @match        *://www.latimes.com/*
+// @match        *://washingtonpost.com/*
+// @match        *://www.washingtonpost.com/*
+// @match        *://dispatch.com/*
+// @match        *://www.dispatch.com/*
+// @match        *://athensmessenger.com/*
+// @match        *://www.athensmessenger.com/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
 // @grant        GM_setValue
@@ -344,6 +352,7 @@
             'html, body': {
                 overflow: 'visible'
             }
+        }
     }, {
         name: 'Athens Messenger',
         match: '^https?://www\.athensmessenger\.com/.*',
@@ -353,10 +362,11 @@
             },
             '.subscription-required': {
                 display: 'none'
-            }
+            },
             '.redacted-overlay': {
                 background: 'none'
             }
+        }
     }];
     // END OF IMPLEMENTATIONS
 
